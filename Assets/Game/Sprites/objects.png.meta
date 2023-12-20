@@ -140,15 +140,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: objects_0
+      name: chest_01
       rect:
         serializedVersion: 2
         x: 0
         y: 304
         width: 15
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.46702054, y: 0.40724182}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -161,15 +161,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_1
+      name: chest_04
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 304
-        width: 14
+        width: 15
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.46466434, y: 0.4028263}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -379,7 +379,7 @@ TextureImporter:
         width: 7
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -392,15 +392,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_19
+      name: chest_02
       rect:
         serializedVersion: 2
         x: 8
         y: 279
         width: 15
         height: 18
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4688804, y: 0.35972935}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -413,15 +413,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: objects_20
+      name: chest_03
       rect:
         serializedVersion: 2
         x: 40
         y: 279
         width: 15
         height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.46413472, y: 0.34105322}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -984,8 +984,8 @@ TextureImporter:
       objects_41: -1352908707
       objects_89: -1295961527
       objects_109: 100639381
-      objects_20: 2085077419
       objects_3: -1479499431
+      chest_01: 1399957475
       objects_18: -1359461563
       objects_2: 1165509989
       objects_58: 1015315302
@@ -994,6 +994,7 @@ TextureImporter:
       objects_43: -1172496536
       objects_132: -675726839
       objects_81: 2143865015
+      chest_04: 459178667
       objects_124: -87928347
       objects_55: -956180743
       objects_99: -331448075
@@ -1005,7 +1006,6 @@ TextureImporter:
       objects_82: -2123691225
       objects_12: -1749903467
       objects_65: -460733452
-      objects_1: 459178667
       objects_35: 794334265
       objects_9: -407132130
       objects_30: -1914869469
@@ -1018,6 +1018,7 @@ TextureImporter:
       objects_93: -1055327846
       objects_94: 2043425994
       objects_50: -1379258736
+      chest_02: -7905187
       objects_79: 1217242689
       objects_102: -927872495
       objects_91: -706874236
@@ -1029,11 +1030,11 @@ TextureImporter:
       objects_70: 1133098038
       objects_106: -1818568883
       objects_131: -1088758542
-      objects_87: 484737921
       objects_104: 1451037546
       objects_107: 504620816
-      objects_7: 37483544
+      objects_87: 484737921
       objects_80: -19754167
+      objects_7: 37483544
       objects_22: 1074210835
       objects_47: 869167229
       objects_42: 2035531299
@@ -1059,12 +1060,10 @@ TextureImporter:
       objects_56: -242759105
       objects_13: 1407148608
       objects_33: 834477997
-      objects_19: -7905187
       objects_29: 1065571860
-      objects_126: 2122682644
       objects_67: 18219712
+      objects_126: 2122682644
       Tree_01: 227471431
-      objects_0: 1399957475
       objects_46: -13391345
       objects_6: 176644067
       objects_51: -24811004
@@ -1073,6 +1072,7 @@ TextureImporter:
       objects_112: -591861840
       objects_40: -1406918664
       objects_121: -609140112
+      chest_03: 2085077419
       objects_139: 1694997356
       objects_32: -787169507
       objects_27: 483450854

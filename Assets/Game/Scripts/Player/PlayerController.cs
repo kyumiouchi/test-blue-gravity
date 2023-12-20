@@ -18,6 +18,13 @@ public class PlayerController : MonoBehaviour
     private Vector2 _playerLookDirection;
     private bool _isMoving = false;
 
+    #region Properties
+
+    public Vector2 PlayerLookDirection => _playerLookDirection;
+    
+    #endregion
+    
+
     private void Awake()
     {
         _playerRigidbody2D = GetComponent<Rigidbody2D>();
