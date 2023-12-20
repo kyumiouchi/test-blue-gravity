@@ -11,12 +11,17 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// Rigidbody2D component of the player.
     /// </summary>
-    [SerializeField] private Rigidbody2D _playerRigidbody2D;
+    private Rigidbody2D _playerRigidbody2D;
+    private Animator _playerAnimator;
 
-    private Vector2 _playerMoveVector;
+    private Vector2 _playerMoveVector = new Vector2(0,0);
+    private Vector2 _playerLookDirection;
+    private bool _isMoving = false;
 
     private void Awake()
     {
+        _playerRigidbody2D = GetComponent<Rigidbody2D>();
+        _playerAnimator = GetComponent<Animator>();
         gameObject.SetActive(false);
     }
 
@@ -34,15 +39,24 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _playerMoveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        var horizontal = Input.GetAxisRaw("Horizontal");
+        var vertical = Input.GetAxisRaw("Vertical");
+        _playerMoveVector.x = horizontal;
+        _playerMoveVector.y = vertical;
+        _playerAnimator.SetFloat("horizontal", horizontal);
+        _playerAnimator.SetFloat("vertical", vertical);
+
+        _isMoving = horizontal != 0 || vertical != 0;
+        _playerAnimator.SetBool("isMoving", _isMoving);
+        if (_isMoving)
+        {
+            _playerLookDirection = _playerMoveVector.normalized;
+            _playerAnimator.SetFloat("lookHorizontal", horizontal);
+            _playerAnimator.SetFloat("lookVertical", vertical);
+        }
     }
 
     private void FixedUpdate()
-    {
-        UpdatePlayer();
-    }
-
-    private void UpdatePlayer()
     {
         _playerRigidbody2D.velocity = _playerMoveVector * _playerDataSo.WalkSpeed;
     }
