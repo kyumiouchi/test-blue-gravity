@@ -958,6 +958,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Shop_Icon
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 4
+        width: 63
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c6fae00a562f34d972b46fcfb2530c
+      internalID: 1963105923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1003,6 +1024,7 @@ TextureImporter:
       objects_49: 1577140705
       objects_5: -1717749019
       objects_137: -130577252
+      Shop_Icon: 1963105923
       objects_82: -2123691225
       objects_12: -1749903467
       objects_65: -460733452
@@ -1030,11 +1052,11 @@ TextureImporter:
       objects_70: 1133098038
       objects_106: -1818568883
       objects_131: -1088758542
-      objects_104: 1451037546
-      objects_107: 504620816
       objects_87: 484737921
+      objects_104: 1451037546
       objects_80: -19754167
       objects_7: 37483544
+      objects_107: 504620816
       objects_22: 1074210835
       objects_47: 869167229
       objects_42: 2035531299
