@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Player_Nancy_SO
   m_EditorClassIdentifier: 
   _walkSpeed: 2
+  _coins: 30

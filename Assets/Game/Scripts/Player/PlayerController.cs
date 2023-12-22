@@ -5,11 +5,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerDataSo _playerDataSo;
     
-    /// <summary>
-    /// Rigidbody2D component of the player.
-    /// </summary>
     private Rigidbody2D _playerRigidbody2D;
     private Animator _playerAnimator;
+    private WearController _wearController;
 
     private Vector2 _playerMoveVector = new Vector2(0,0);
     private Vector2 _playerLookDirection;
@@ -21,43 +19,55 @@ public class PlayerController : MonoBehaviour
     
     #endregion
     
-
     private void Awake()
     {
         _playerRigidbody2D = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
+        _wearController = GetComponent<WearController>();
         gameObject.SetActive(false);
     }
 
     public void InitialiseGame()
     {
         _playerRigidbody2D.gameObject.SetActive(true);
-
-        ResetPlayerPosition();
     }
-
-    private void ResetPlayerPosition()
-    {
-        
-    }
-
+    
     private void Update()
+    {
+        MovePlayer();
+    }
+
+    private void MovePlayer()
     {
         var horizontal = Input.GetAxisRaw("Horizontal");
         var vertical = Input.GetAxisRaw("Vertical");
+        
         _playerMoveVector.x = horizontal;
         _playerMoveVector.y = vertical;
-        _playerAnimator.SetFloat("horizontal", horizontal);
-        _playerAnimator.SetFloat("vertical", vertical);
+
+        SetAnimation("horizontal", horizontal);
+        SetAnimation("vertical", vertical);
 
         _isMoving = horizontal != 0 || vertical != 0;
-        _playerAnimator.SetBool("isMoving", _isMoving);
+        SetAnimation("isMoving", _isMoving);
+        
         if (_isMoving)
         {
             _playerLookDirection = _playerMoveVector.normalized;
-            _playerAnimator.SetFloat("lookHorizontal", horizontal);
-            _playerAnimator.SetFloat("lookVertical", vertical);
+            SetAnimation("lookHorizontal", horizontal);
+            SetAnimation("lookVertical", vertical);
         }
+    }
+
+    private void SetAnimation(string name, float value)
+    {
+        _playerAnimator.SetFloat(name, value);
+        _wearController.SetAnimation(name, value);
+    }
+    private void SetAnimation(string name, bool value)
+    {
+        _playerAnimator.SetBool(name, value);
+        _wearController.SetAnimation(name, value);
     }
 
     private void FixedUpdate()

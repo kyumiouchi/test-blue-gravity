@@ -9,3 +9,11 @@ public enum ItemType
     Food,
     Utility
 }
+
+public enum BodyPositionType
+{
+    None,
+    Body,
+    TopHead,
+    Head,
+}

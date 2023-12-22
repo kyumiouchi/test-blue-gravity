@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1519,16 +1519,15 @@ TextureImporter:
       char_a_p1_4har_dap1_v01_30: 568910465
       char_a_p1_4har_dap1_v01_41: -1632104752
       char_a_p1_4har_dap1_v01_7: 1981875200
-      char_a_p1_4har_dap1_v01_32: -1737259806
+      char_a_p1_4har_dap1_v01_17: -1860792513
       char_a_p1_4har_dap1_v01_9: 647202360
       char_a_p1_4har_dap1_v01_22: -1609914798
       char_a_p1_4har_dap1_v01_16: -1693691136
       char_a_p1_4har_dap1_v01_44: 741898109
       char_a_p1_4har_dap1_v01_40: -821818188
       char_a_p1_4har_dap1_v01_21: -1105200868
-      char_a_p1_4har_dap1_v01_17: -1860792513
-      char_a_p1_4har_dap1_v01_37: 1589041906
       char_a_p1_4har_dap1_v01_58: 1180183780
+      char_a_p1_4har_dap1_v01_37: 1589041906
       char_a_p1_4har_dap1_v01_50: -1114389309
       char_a_p1_4har_dap1_v01_29: 1118890863
       char_a_p1_4har_dap1_v01_11: 1170188055
@@ -1538,9 +1537,10 @@ TextureImporter:
       char_a_p1_4har_dap1_v01_25: -1560801789
       char_a_p1_4har_dap1_v01_55: 1863532317
       char_a_p1_4har_dap1_v01_4: 312587349
-      char_a_p1_4har_dap1_v01_63: 439880194
+      char_a_p1_4har_dap1_v01_32: -1737259806
       char_a_p1_4har_dap1_v01_15: -1022695200
       char_a_p1_4har_dap1_v01_31: 760862578
+      char_a_p1_4har_dap1_v01_63: 439880194
       char_a_p1_4har_dap1_v01_42: -284432808
       char_a_p1_4har_dap1_v01_53: 1209495252
       char_a_p1_4har_dap1_v01_45: 270175108

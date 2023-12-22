@@ -17,10 +17,10 @@ public class ToolsPlayerController : MonoBehaviour
 
     void Update()
     {
-        Interaction(Input.GetMouseButtonDown(0));
+        InteractionWithObject(Input.GetMouseButtonDown(0));
     }
 
-    private void Interaction(bool mouseButtonDown)
+    private void InteractionWithObject(bool mouseButtonDown)
     {
         var position = _playerRigidbody2D.position + _playerController.PlayerLookDirection * _offsetDistance;
         var colliders = Physics2D.OverlapCircleAll(position, _sizeRadiuInteractableArea);
@@ -30,10 +30,12 @@ public class ToolsPlayerController : MonoBehaviour
             
             if (interact == null) continue;
             
+            //Interaction just after click
             if (mouseButtonDown)
             {
                 interact.Interact();
             }
+            //Highlight Object
             if (interact.IsHighlight)
             {
                 _highlightController.Highlight(itemCollider.gameObject);
