@@ -4,6 +4,7 @@ public class HighlightController : MonoBehaviour
 {
     [SerializeField] private GameObject _highlighter;
     private GameObject _objectToHighlight;
+    [SerializeField] private float _lenghtUp = 0.5f;
 
     public void Highlight(GameObject target)
     {
@@ -11,7 +12,7 @@ public class HighlightController : MonoBehaviour
         _highlighter.SetActive(true);
         
         var position = target.transform.position;
-        position.y += 10;
+        position += Vector3.up * _lenghtUp;
         _highlighter.transform.position = position;
     }
 
