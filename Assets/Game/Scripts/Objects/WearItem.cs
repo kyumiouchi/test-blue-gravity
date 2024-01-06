@@ -37,12 +37,10 @@ public class WearItem : MonoBehaviour
 
     public void SetAnimation(string name, bool value)
     {
-        if (_renderer.enabled)
-            _animator.SetBool(name, value);
+        _animator.SetBool(name, value);
     }
     public void SetAnimation(string name, float value)
     {
-        if (_renderer.enabled)
-            _animator.SetFloat(name, value);
+        _animator.SetFloat(name, value);
     }
 }
