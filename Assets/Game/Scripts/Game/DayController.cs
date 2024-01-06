@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -17,6 +18,11 @@ public class DayController : MonoBehaviour
     [SerializeField] private Light2D _globalLight;
     private float _currentTime;
     private int _currentDay = 1;
+
+    private void Start()
+    {
+        _currentTime = 6 * 60 * 60; // 6am
+    }
 
     float Hours
     {

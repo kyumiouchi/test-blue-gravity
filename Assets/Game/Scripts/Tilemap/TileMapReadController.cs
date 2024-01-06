@@ -36,7 +36,7 @@ public class TileMapReadController : MonoBehaviour
         return _dataFromTiles[tileBase];
     }
 
-    private TileBase GetTileBase(Vector3 position, bool mousePosition = false)
+    public TileBase GetTileBase(Vector3 position, bool mousePosition = false)
     {
         
         var gridPosition = GetGridPosition(position, mousePosition);

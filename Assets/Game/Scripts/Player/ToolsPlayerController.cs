@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ToolsPlayerController : MonoBehaviour
 {
@@ -7,9 +8,15 @@ public class ToolsPlayerController : MonoBehaviour
     [SerializeField] private float _sizeRadiuInteractableArea = 1.2f;
     [SerializeField] private MarkerManager _markerManager;
     [SerializeField] private TileMapReadController _tileMapReadController;
+    [SerializeField] private float _maxDistance = 1.5f;
+    [SerializeField] private CropsManager _cropsManager;
+    [SerializeField] private TileDataSo _plowableTiles;
+    
     private PlayerController _playerController;
     private Rigidbody2D _playerRigidbody2D;
     private bool _isHighlight;
+    private Vector3Int _selectedTilePosition;
+    private bool _selectable;
 
     private void Awake()
     {
@@ -19,17 +26,52 @@ public class ToolsPlayerController : MonoBehaviour
 
     void Update()
     {
+        SelectTile();
+        CanSelectCheck();
         Marker();
-        InteractionWithObject(Input.GetMouseButtonDown(0));
+        if (InteractionWithObject(Input.GetMouseButtonDown(0)))
+            return;
+        if (Input.GetMouseButtonDown(0))
+            UseToolGrid();
+    }
+
+    private void SelectTile()
+    {
+        _selectedTilePosition = _tileMapReadController.GetGridPosition(Input.mousePosition, true);
     }
 
     private void Marker()
     {
-        Vector3Int gridPosition = _tileMapReadController.GetGridPosition(Input.mousePosition, true);
-        _markerManager.markedCellPosition = gridPosition;
+        _markerManager.markedCellPosition = _selectedTilePosition;
     }
 
-    private void InteractionWithObject(bool mouseButtonDown)
+    private void CanSelectCheck()
+    {
+        Vector2 playerPosition = transform.position;
+        Vector2 cameraPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        _selectable = Vector2.Distance(playerPosition, cameraPosition) < _maxDistance;
+        _markerManager.ShowMarker(_selectable);
+    }
+
+    private void UseToolGrid()
+    {
+        if (_selectable)
+        {
+            TileBase tileBase = _tileMapReadController.GetTileBase(_selectedTilePosition);
+            TileDataSo tileData = _tileMapReadController.GetTileData(tileBase);
+            if (tileData != _plowableTiles) return;
+            if (_cropsManager.Check(_selectedTilePosition))
+            {
+                _cropsManager.Seed(_selectedTilePosition);
+            }
+            else
+            {
+                _cropsManager.Plow(_selectedTilePosition);
+            }
+        }
+    }
+
+    private bool InteractionWithObject(bool mouseButtonDown)
     {
         var position = _playerRigidbody2D.position + _playerController.PlayerLookDirection * _offsetDistance;
         var colliders = Physics2D.OverlapCircleAll(position, _sizeRadiuInteractableArea);
@@ -49,8 +91,9 @@ public class ToolsPlayerController : MonoBehaviour
             {
                 _highlightController.Highlight(itemCollider.gameObject);
             }
-            return;
+            return true;
         }
         _highlightController.HideHighlight();
+        return false;
     }
 }
