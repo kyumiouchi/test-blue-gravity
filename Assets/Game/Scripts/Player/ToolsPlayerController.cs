@@ -5,6 +5,8 @@ public class ToolsPlayerController : MonoBehaviour
     [SerializeField] private HighlightController _highlightController;
     [SerializeField] private float _offsetDistance = 1f;
     [SerializeField] private float _sizeRadiuInteractableArea = 1.2f;
+    [SerializeField] private MarkerManager _markerManager;
+    [SerializeField] private TileMapReadController _tileMapReadController;
     private PlayerController _playerController;
     private Rigidbody2D _playerRigidbody2D;
     private bool _isHighlight;
@@ -17,7 +19,14 @@ public class ToolsPlayerController : MonoBehaviour
 
     void Update()
     {
+        Marker();
         InteractionWithObject(Input.GetMouseButtonDown(0));
+    }
+
+    private void Marker()
+    {
+        Vector3Int gridPosition = _tileMapReadController.GetGridPosition(Input.mousePosition, true);
+        _markerManager.markedCellPosition = gridPosition;
     }
 
     private void InteractionWithObject(bool mouseButtonDown)
